@@ -20,7 +20,7 @@ export default function decorate(block) {
     'All Work',
     'Creative',
     'Design',
-    'Development',
+    'Web Development',
     'Management',
   ];
 
