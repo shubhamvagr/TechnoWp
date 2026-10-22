@@ -274,3 +274,23 @@ header nav .nav-sections .nav-drop > button[aria-expanded='false'] + ul {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+/* Header layout refinement */
+header {
+  margin-top: 0;
+  border-top: 0;
+}
+
+header .nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border: 0;
+  box-shadow: none;
+}
+
+header nav {
+  min-height: 80px;
+}
+
