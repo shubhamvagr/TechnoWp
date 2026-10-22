@@ -147,6 +147,104 @@
     margin: 92px;
   }
 
+/* Hero content layout */
+.carousel .carousel-slide .carousel-slide-content {
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 72%),
+    rgb(0 0 0 / 35%),
+    transparent
+  );
+  margin: 0 0 0 12%;
+  padding: 32px 24px;
+  width: 52%;
+  box-sizing: border-box;
+}
+
+/* Main hero heading */
+.carousel .carousel-slide-content h1,
+.carousel .carousel-slide-content h2 {
+  font-size: clamp(36px, 4.5vw, 76px);
+  line-height: 1.15;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+/* Hero description */
+.carousel .carousel-slide-content p {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* CTA links: Read More and Contact Us */
+.carousel .carousel-slide-content a:not(.hero-social-links a) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0861d5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 15px 24px;
+  margin: 10px 12px 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.carousel .carousel-slide-content a:not(.hero-social-links a):hover {
+  background: #064eac;
+}
+
+/* Social media icon buttons */
+.carousel .hero-social-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.carousel .hero-social-links a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: #0861d5;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.carousel .hero-social-links a:hover {
+  background: #0349a7;
+}
+
+.carousel .hero-social-links img {
+  width: 21px;
+  height: 21px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Smaller screens */
+@media (max-width: 599px) {
+  .carousel .carousel-slide .carousel-slide-content {
+    margin: 0;
+    padding: 20px;
+    width: 90%;
+  }
+
+  .carousel .carousel-slide-content h1,
+  .carousel .carousel-slide-content h2 {
+    font-size: 32px;
+  }
+
+  .carousel .hero-social-links {
+    gap: 12px;
+  }
+}
+
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
