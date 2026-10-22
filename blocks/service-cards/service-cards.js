@@ -17,8 +17,11 @@ export default function decorate(block) {
 
   block.textContent = '';
 
-  const grid = document.createElement('div');
-  grid.className = 'service-cards-grid';
+  const viewport = document.createElement('div');
+  viewport.className = 'service-cards-viewport';
+
+  const track = document.createElement('div');
+  track.className = 'service-cards-track';
 
   cards.forEach((card) => {
     const item = document.createElement('article');
@@ -28,12 +31,12 @@ export default function decorate(block) {
     imageLink.className = 'service-card-image';
     imageLink.href = card.link;
 
-    const image = document.createElement('img');
-    image.src = card.image;
-    image.alt = card.alt || card.title;
-    image.loading = 'lazy';
+    const img = document.createElement('img');
+    img.src = card.image;
+    img.alt = card.alt || card.title;
+    img.loading = 'lazy';
 
-    imageLink.append(image);
+    imageLink.append(img);
 
     const content = document.createElement('div');
     content.className = 'service-card-content';
@@ -47,8 +50,42 @@ export default function decorate(block) {
 
     content.append(title, category);
     item.append(imageLink, content);
-    grid.append(item);
+    track.append(item);
   });
 
-  block.append(grid);
+  viewport.append(track);
+
+  const prev = document.createElement('button');
+  prev.className = 'service-cards-arrow service-cards-prev';
+  prev.type = 'button';
+  prev.setAttribute('aria-label', 'Previous services');
+  prev.textContent = '‹';
+
+  const next = document.createElement('button');
+  next.className = 'service-cards-arrow service-cards-next';
+  next.type = 'button';
+  next.setAttribute('aria-label', 'Next services');
+  next.textContent = '›';
+
+  const move = (direction) => {
+    const card = track.querySelector('.service-card');
+    if (!card) return;
+
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const distance = card.getBoundingClientRect().width + gap;
+
+    viewport.scrollBy({
+      left: direction * distance,
+      behavior: 'smooth',
+    });
+  };
+
+  prev.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+
+  const controls = document.createElement('div');
+  controls.className = 'service-cards-controls';
+  controls.append(prev, next);
+
+  block.append(controls, viewport);
 }
