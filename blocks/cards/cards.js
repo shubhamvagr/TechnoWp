@@ -1,6 +1,14 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
+  const firstCard = block.querySelector(':scope > div');
+const firstText = firstCard?.innerText.trim() || '';
+
+if (/^\d/.test(firstText)) {
+  block.classList.add('cards-stats');
+} else {
+  block.classList.add('cards-services');
+}
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
