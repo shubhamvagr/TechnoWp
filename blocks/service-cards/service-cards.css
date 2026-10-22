@@ -1,15 +1,35 @@
 
-.service-cards .service-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px;
+.service-cards {
+  position: relative;
+  padding: 20px 0 40px;
+}
+
+.service-cards .service-cards-viewport {
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.service-cards .service-cards-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.service-cards .service-cards-track {
+  display: flex;
+  align-items: stretch;
+  gap: 28px;
 }
 
 .service-cards .service-card {
   position: relative;
+  flex: 0 0 calc((100% - 84px) / 4);
   min-width: 0;
+  box-sizing: border-box;
   padding-bottom: 58px;
+  scroll-snap-align: start;
 }
 
 .service-cards .service-card-image {
@@ -49,10 +69,10 @@
 
 .service-cards .service-card-content h3 {
   margin: 0 0 5px;
-  font-size: 18px;
-  line-height: 1.4;
-  font-weight: 400;
   color: #383838;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .service-cards .service-card-category {
@@ -62,10 +82,37 @@
   line-height: 1.5;
 }
 
+/* Navigation arrows */
+.service-cards .service-cards-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.service-cards .service-cards-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid #0861d5;
+  border-radius: 50%;
+  background: #0861d5;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.service-cards .service-cards-arrow:hover {
+  background: #0049aa;
+}
+
 @media (max-width: 1000px) {
-  .service-cards .service-cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+  .service-cards .service-card {
+    flex-basis: calc((100% - 28px) / 2);
   }
 
   .service-cards .service-card-image {
@@ -74,17 +121,15 @@
 }
 
 @media (max-width: 600px) {
-  .service-cards .service-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .service-cards .service-cards-track {
+    gap: 20px;
+  }
+
+  .service-cards .service-card {
+    flex-basis: 85%;
   }
 
   .service-cards .service-card-image {
     height: 320px;
-  }
-
-  .service-cards .service-card-content {
-    left: 4%;
-    right: 4%;
   }
 }
