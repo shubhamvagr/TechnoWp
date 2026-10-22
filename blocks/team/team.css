@@ -1,0 +1,120 @@
+
+/* Team card grid */
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 24px auto 48px;
+}
+
+/* Individual card */
+.team .team-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 3px 7px rgb(0 0 0 / 12%);
+  border-radius: 9px 9px 0 0;
+}
+
+/* Profile photo */
+.team .team-photo {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 9px;
+}
+
+/* Card details */
+.team .team-details {
+  padding: 15px 12px 22px;
+}
+
+.team .team-details h3 {
+  margin: 0 0 3px;
+  color: #222;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.team .team-role {
+  margin: 0 0 6px;
+  color: #555;
+  font-size: 14px;
+}
+
+.team .team-description {
+  margin: 0 0 12px;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Social icon circles */
+.team .team-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.team .team-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  background: #fff;
+  color: #999;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.team .team-social-link:hover {
+  color: #0861d5;
+  border-color: #0861d5;
+}
+
+/* Center the heading and description above this block */
+main .section:has(.team) h2,
+main .section:has(.team) h3 {
+  text-align: center;
+}
+
+main .section:has(.team) > div > p {
+  text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .team .team-photo {
+    height: 300px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .team {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 24px;
+  }
+
+  .team .team-photo {
+    height: 340px;
+  }
+}
