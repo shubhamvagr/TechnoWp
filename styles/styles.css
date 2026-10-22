@@ -323,3 +323,32 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* Center the Support Gallery heading and description */
+main > div:has(.portfolio) h1,
+main > div:has(.portfolio) h2,
+main > div:has(.portfolio) h3 {
+  text-align: center;
+}
+
+main > div:has(.portfolio) > div > p {
+  text-align: center;
+}
+
+/* Center portfolio filter buttons */
+.portfolio .portfolio-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px auto 38px;
+}
+
+/* Center the portfolio block itself */
+.portfolio {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
